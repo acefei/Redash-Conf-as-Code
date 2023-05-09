@@ -1,0 +1,10 @@
+auth:
+  enabled: true
+  rootUser: root
+  rootPassword: wukong
+  usernames: [wukong]
+  passwords: [wukong]
+  databases: [xs-telemetry]
+
+persistence:
+  enabled: false

@@ -1,0 +1,4 @@
+aiofiles
+asyncio
+httpx
+pyyaml

@@ -1,0 +1,34 @@
+redash:
+  cookieSecret: CWHbW84CkpHRhLb5KTNHzVg3PfO7MEK83IYSS0PL9gU=
+  secretKey: vowNhShhLqhuSsdkoTli3j+IhwLTkuoHEWGoom4pCAo=
+  samlMetadataUrl: https://dev-34281611.okta.com/app/exk7zigb6dmTLLFNl5d7/sso/saml/metadata
+  samlEntityId: https://dev-34281611.okta.com/app/dev-34281611_xstelemetry_1/exk7zigb6dmTLLFNl5d7/sso/saml
+  samlNameidFormat: urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress
+
+service:
+  type: NodePort
+
+postgresql:
+  postgresqlPassword: I1saYqDqYm4gWER5jz2DCkf8mDS5uRQA0wwEphT9qCM=
+  persistence:
+    enabled: false
+  image:
+    image:
+    registry: docker.io
+    repository: bitnami/postgresql
+    tag: 11.7.0-debian-10-r9
+    pullPolicy: IfNotPresent
+
+
+redis:
+  image:
+    registry: docker.io
+    repository: bitnami/redis
+    tag: 5.0.7-debian-10-r32
+    pullPolicy: IfNotPresent
+  master:
+    persistence:
+      enabled: false
+  slave:
+    persistence:
+      enabled: false

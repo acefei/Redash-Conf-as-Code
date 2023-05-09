@@ -1,0 +1,58 @@
+repos:
+# Syntax check with pre-commit out-of-the-box hooks
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0
+  hooks:
+  - id: check-added-large-files
+  - id: trailing-whitespace
+  - id: end-of-file-fixer
+  - id: debug-statements
+  - id: detect-private-key
+  - id: requirements-txt-fixer
+  - id: pretty-format-json
+    args: [--autofix, --no-ensure-ascii, --no-sort-keys]
+
+# Source code spell checker
+- repo: https://github.com/crate-ci/typos
+  rev: typos-dict-v0.9.26
+  hooks:
+  - id: typos
+
+# Upgrade syntax for newer versions of python.
+- repo: https://github.com/asottile/pyupgrade
+  rev: v3.4.0
+  hooks:
+  - id: pyupgrade
+
+# Format YAML & TOML files prettily
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.8.0
+  hooks:
+  - id: pretty-format-yaml
+    args: [--autofix, --indent, '2']
+
+# Static type checker
+- repo: https://github.com/pre-commit/mirrors-mypy
+  rev: v1.2.0
+  hooks:
+  - id: mypy
+    additional_dependencies: [types-aiofiles]
+
+# An extremely fast Python linter
+- repo: https://github.com/charliermarsh/ruff-pre-commit
+  rev: v0.0.265
+  hooks:
+  - id: ruff
+
+# Vulture finds unused code
+- repo: https://github.com/jendrikseipp/vulture
+  rev: v2.7
+  hooks:
+  - id: vulture
+
+# Find common security issues in Python with bandit
+- repo: https://github.com/PyCQA/bandit
+  rev: 1.7.5
+  hooks:
+  - id: bandit
+    exclude: ^tests/.*\.py$
